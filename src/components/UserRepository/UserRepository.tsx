@@ -2,14 +2,17 @@ interface UserRepositoryProps {
   name: string;
   description: string;
   stars: number;
+  url: string;
 }
 
-export const UserRepository = ({ name, description, stars }: UserRepositoryProps) => (
+export const UserRepository = ({ name, description, stars, url }: UserRepositoryProps) => (
   <div className="p-4 rounded-lg border border-sky-700 overflow-hidden">
     <div className="grid grid-cols-2 gap-4">
-      <h4 className="mb-6 text-lg font-extrabold leading-none tracking-tight text-gray-900 dark:text-white">
-        {name}
-      </h4>
+      <a href={url} rel="noopener noreferrer" target="_blank">
+        <h4 className="mb-6 text-lg font-extrabold leading-none tracking-tight text-gray-900 dark:text-white">
+          {name}
+        </h4>
+      </a>
       <div className="text-right">
         <svg
           aria-hidden="true"

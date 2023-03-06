@@ -61,12 +61,13 @@ export const UserRepositories = ({ login }: UserRepositoriesProps) => {
             {isLoading ? (
               <p className="p-4">Fetching..</p>
             ) : (
-              respositories.map(({ name, description, stargazers_count }) => (
+              respositories.map(({ name, description, stargazers_count, html_url }) => (
                 <UserRepository
                   description={description}
                   key={name}
                   name={name}
                   stars={stargazers_count}
+                  url={html_url}
                 />
               ))
             )}
