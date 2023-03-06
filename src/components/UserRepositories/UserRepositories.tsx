@@ -57,20 +57,25 @@ export const UserRepositories = ({ login }: UserRepositoriesProps) => {
             isExpanded ? 'max-h-96' : 'max-h-0'
           }`}
         >
-          {isLoading ? (
-            <p className="p-4">Fetching..</p>
-          ) : (
-            <div className="p-4 grid gap-4">
-              {respositories.map(({ name, description, stargazers_count }) => (
+          <div className="p-4 grid gap-4">
+            {isLoading ? (
+              <p className="p-4">Fetching..</p>
+            ) : (
+              respositories.map(({ name, description, stargazers_count }) => (
                 <UserRepository
                   description={description}
                   key={name}
                   name={name}
                   stars={stargazers_count}
                 />
-              ))}
-            </div>
-          )}
+              ))
+            )}
+            {!respositories.length && !isLoading ? (
+              <p className="p-4">User {login} has no public repositories.</p>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
       </div>
     </div>

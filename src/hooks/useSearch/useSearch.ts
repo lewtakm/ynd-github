@@ -15,7 +15,9 @@ export const useSearch = () => {
       try {
         setIsLoading(true);
         setSearchQuery(searchString);
-        const response = await fetch(`${GITHUB_SEARCH_USERS_URL}?q=${searchString}`);
+        const response = await fetch(
+          `${GITHUB_SEARCH_USERS_URL}?q=${searchString}&page=1&per_page=5`,
+        );
         const data = await response.json();
         setSearchResults(data.items);
       } catch (err) {
